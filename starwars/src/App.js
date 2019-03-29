@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CharacterInfo from "./components/CharacterInfo";
 import './App.css';
 
 class App extends Component {
@@ -38,11 +39,7 @@ class App extends Component {
 	    <div style={style}>
 		    <h1 style={{color: "silver"}} key={character.name}>{character.name}</h1>
 		    <ul style={{listStyleType: "none"}}>
-   		        <li>Born: {character.birth_year}</li>
-		        <li>Height: {character.height}</li>
-		        <li>Gender: {character.gender}</li>
-		        <li>Eye Color: {character.eye_color}</li>
-		        <li>Hair Color: {character.hair_color}</li>
+			<CharacterInfo character={character} />
 		    </ul>
 	    </div>
 	)
