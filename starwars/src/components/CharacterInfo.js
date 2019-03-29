@@ -9,7 +9,9 @@ const CharacterInfo = ({character}) => {
 		["Hair Color: ", "hair_color"]
 	];
 	return characterInformation.map(a => {
-		return <li>{`${a[0]}${character[a[1]]}`}</li>;
+		const charTrait = a[0];
+		const detail = character[a[1]];
+		return <li>{`${charTrait}${detail}`}</li>;
 	});
 }
 
