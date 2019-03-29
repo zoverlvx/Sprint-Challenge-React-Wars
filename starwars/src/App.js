@@ -30,15 +30,29 @@ class App extends Component {
   };
 
   render() {
-	console.log(this.state)
     const {starwarsChars} = this.state;
-    function createCharacterImages(character, i) {
-	return <img src={character.url} key={i} alt={character.name} />;
+	console.log(starwarsChars)
+    const style = {border: "2px solid white", width: "50%", backgroundColor: "white", margin: "5px"}
+    function createCharacterCards(character, i) {
+	return (
+	    <div style={style}>
+		    <h1 style={{color: "silver"}} key={character.name}>{character.name}</h1>
+		    <ul style={{listStyleType: "none"}}>
+   		        <li>Born: {character.birth_year}</li>
+		        <li>Height: {character.height}</li>
+		        <li>Gender: {character.gender}</li>
+		        <li>Eye Color: {character.eye_color}</li>
+		        <li>Hair Color: {character.hair_color}</li>
+		    </ul>
+	    </div>
+	)
     }
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
-	{starwarsChars.map(createCharacterImages)}
+	<div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+		{starwarsChars.map(createCharacterCards)}
+	</div>
       </div>
     );
   }
