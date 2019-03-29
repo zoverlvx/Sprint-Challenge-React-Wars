@@ -30,9 +30,15 @@ class App extends Component {
   };
 
   render() {
+	console.log(this.state)
+    const {starwarsChars} = this.state;
+    function createCharacterImages(character, i) {
+	return <img src={character.url} key={i} alt={character.name} />;
+    }
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
+	{starwarsChars.map(createCharacterImages)}
       </div>
     );
   }
