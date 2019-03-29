@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CharacterInfo from "./components/CharacterInfo";
 import './App.css';
 
 class App extends Component {
@@ -30,9 +31,25 @@ class App extends Component {
   };
 
   render() {
+    const {starwarsChars} = this.state;
+	console.log(starwarsChars)
+    const style = {border: "2px solid white", width: "50%", backgroundColor: "white", margin: "5px"}
+    function createCharacterCards(character, i) {
+	return (
+	    <div style={style}>
+		    <h1 style={{color: "silver"}} key={character.name}>{character.name}</h1>
+		    <ul style={{listStyleType: "none"}}>
+			<CharacterInfo character={character} />
+		    </ul>
+	    </div>
+	)
+    }
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
+	<div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+		{starwarsChars.map(createCharacterCards)}
+	</div>
       </div>
     );
   }
